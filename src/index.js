@@ -3,6 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // ReactDOM is an object importing from 'react-dom' module
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
+
+import Counter from './components/counter';
+// import counter component
+
 // const element = <h1>Hello World!</h1>;
 // console.log(element);
 // element is the part of the virtual DOM
@@ -19,3 +23,5 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
     First arg: element we want to render
     Second arg: Where we want to render
  */
+
+ReactDOM.render(<Counter />, document.getElementById('root'));
