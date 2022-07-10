@@ -7,39 +7,24 @@ class Counter extends Component {
     tags: ['tag1', 'tag2', 'tag3'],
   };
 
-  styles = {
-    fontSize: '30px',
-    fontWeight: 'bold',
-  };
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>Thre are no tags.</p>;
+
+    return (
+      <ul>
+        {this.state.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
       <React.Fragment>
-        <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className='btn btn-secondary btn-sm'>Increment</button>
-
-        <ul>
-          {this.state.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        <div>{this.renderTags()}</div>
       </React.Fragment>
     );
-  }
-
-  getBadgeClasses() {
-    let classes = 'badge m-2 badge-';
-    classes += this.state.count === 0 ? 'warning' : 'primary';
-    return classes;
-  }
-
-  formatCount() {
-    const { count } = this.state;
-
-    // We can also return JSX because eventually it gets compiled to JS
-    // return count === 0 ? <h1>Zero</h1> : count;
-
-    return count === 0 ? 'Zero' : count;
   }
 }
 
